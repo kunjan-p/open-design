@@ -317,32 +317,21 @@ The user sees the HTML report. The transcript is there if they want to dig deepe
 
 ## Credits
 
-This skill is not an original idea. It is a Claude-native packaging of a
-methodology that other people invented and refined, and it is submitted here
-so the workflow is installable rather than copied by hand.
+This text is not original work. It is redistributed from
+[tenfoldmarc/llm-council-skill](https://github.com/tenfoldmarc/llm-council-skill),
+which licenses it under MIT, and is packaged here so the workflow is
+installable from the OpenDesign catalog rather than copied by hand. See
+`LICENSE` in this folder for the reproduced grant.
 
-- **[Andrej Karpathy](https://github.com/karpathy/llm-council)** — the LLM
-  Council itself: dispatch a question to several models, have them review
-  each other with identities anonymized, then let a chairman synthesize the
-  final answer. The three-stage structure used here is his.
-- **Ole Lehmann** — the adaptation that the Claude-skill versions of this
-  workflow are generally credited to.
-- **The community Claude-skill implementations** that established the shape
-  this file follows — five advisors with distinct reasoning lenses, a
-  workspace-context pass, and an HTML report plus Markdown transcript.
-  Independent versions include
-  [oliwoodman/llm-council-skill](https://github.com/oliwoodman/llm-council-skill),
-  [tenfoldmarc/llm-council-skill](https://github.com/tenfoldmarc/llm-council-skill),
-  and [aiwithremy/claude-skills-llm-council](https://github.com/aiwithremy/claude-skills-llm-council).
-
-The substantive change from Karpathy's original is that advisors are
-sub-agents given different thinking lenses inside one model, rather than
-different models. Everything else follows the prior art above.
-
-If you are one of the authors of the text this derives from and want the
-attribution corrected or the plugin withdrawn, say so on the PR and it will
-be handled.
+- Methodology: [Andrej Karpathy's LLM Council](https://github.com/karpathy/llm-council)
+- Adapted for Claude Code sub-agents by [@olelehmann](https://x.com/olelehmann)
+- Published as an installable skill by [@tenfoldmarc](https://github.com/tenfoldmarc/llm-council-skill)
+- Packaged for OpenDesign by [@kunjan-p](https://github.com/kunjan-p)
 
 ## Provenance
 
 Formalized by OpenDesign from candidate 4bd2bd88-6c04-4f30-b868-56dfa10d7a93.
+
+---
+
+Methodology by [Andrej Karpathy](https://x.com/karpathy). Claude Code adaptation inspired by [@olelehmann](https://x.com/olelehmann). Published by [@tenfoldmarc](https://instagram.com/tenfoldmarc) — follow for daily AI automation builds.

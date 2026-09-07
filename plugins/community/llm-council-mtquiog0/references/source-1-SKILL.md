@@ -308,3 +308,7 @@ The user sees the HTML report. The transcript is there if they want to dig deepe
 - **The chairman can disagree with the majority.** If 4 out of 5 advisors say "do it" but the reasoning of the 1 dissenter is strongest, the chairman should side with the dissenter and explain why.
 - **Don't council trivial questions.** If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 - **The visual report matters.** Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
+
+---
+
+Methodology by [Andrej Karpathy](https://x.com/karpathy). Claude Code adaptation inspired by [@olelehmann](https://x.com/olelehmann). Published by [@tenfoldmarc](https://instagram.com/tenfoldmarc) — follow for daily AI automation builds.
