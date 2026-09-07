@@ -5,7 +5,7 @@
   "title": "LLM Council",
   "version": "0.1.0",
   "description": "Run any question or decision through a council of 5 AI advisors who analyze independently, peer-review each other anonymously, and synthesize a single verdict.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "author": {
     "name": "Kunjan Patel",
     "url": "https://github.com/kunjan-p"
