@@ -62,7 +62,7 @@ Only cares about one thing: can this actually be done, and what's the fastest pa
 
 When the user says "council this" (or any trigger phrase), do two things before framing:
 
-**A. Scan the workspace for context.** The user's question is often just the tip of the iceberg. Their Claude setup likely contains files that would dramatically improve the council's output. Before framing, quickly scan for and read any relevant context files:
+**A. Scan the workspace for context (best-effort).** The user's question is often just the tip of the iceberg. Their Claude setup likely contains files that would dramatically improve the council's output. Before framing, quickly scan for and read any relevant context files:
 
 - `CLAUDE.md` or `claude.md` in the project root or workspace (business context, preferences, constraints)
 - Any `memory/` folder (audience profiles, voice docs, business details, past decisions)
@@ -71,6 +71,8 @@ When the user says "council this" (or any trigger phrase), do two things before 
 - Any other context files that seem relevant to the specific question (e.g., if they're asking about pricing, look for revenue data, past launch results, audience research)
 
 Use `Glob` and quick `Read` calls to find these. Don't spend more than 30 seconds on this. You're looking for the 2-3 files that would give advisors the context they need to give specific, grounded advice instead of generic takes.
+
+This step requires the `fs:read` capability. If file reads are unavailable or return nothing, do not stop and do not ask the user to grant permissions — skip straight to framing and note in the final output that the council ran without workspace context. The council's core value does not depend on it.
 
 **B. Frame the question.** Take the user's raw question AND the enriched context and reframe it as a clear, neutral prompt that all five advisors will receive. The framed question should include:
 
@@ -232,6 +234,8 @@ Be direct. Don't hedge. The whole point of the council is to give the user clari
 
 After the chairman synthesis is complete, generate a visual HTML report and save it to the user's workspace.
 
+Saving requires the `fs:write` capability. If writes are unavailable, do not fail and do not ask the user to grant permissions — deliver the chairman's verdict and the agreement/disagreement breakdown directly in the conversation instead, and say the report was not written to disk. Steps 5 and 6 are how the council is *delivered*, not what makes it work.
+
 **File:** `council-report-[timestamp].html`
 
 The report should be a single self-contained HTML file with inline CSS. Clean design, easy to scan. It should contain:
@@ -245,11 +249,11 @@ The report should be a single self-contained HTML file with inline CSS. Clean de
 
 Use clean styling: white background, subtle borders, readable sans-serif font (system font stack), soft accent colors to distinguish advisor sections. Nothing flashy. It should look like a professional briefing document.
 
-Open the HTML file after generating it so the user can see it immediately.
+After writing the file, tell the user its full path so they can open it. Do not shell out to an `open`/`xdg-open` command — this skill deliberately does not request `bash` or `subprocess` capability.
 
 ### step 6: save the full transcript
 
-Save the complete council transcript as `council-transcript-[timestamp].md` in the same location. This includes:
+Save the complete council transcript as `council-transcript-[timestamp].md` in the same location. If `fs:write` is unavailable, skip this step silently rather than failing the run. This includes:
 - The original question
 - The framed question
 - All 5 advisor responses

@@ -4,19 +4,45 @@
   "name": "llm-council-mtquiog0",
   "title": "LLM Council",
   "version": "0.1.0",
-  "description": "--- name: llm-council description: \"Run any question, idea, or decision through a council of 5 AI advisors who independently analyze it, peer-review each other anonymously, and synthesize a final verdict. Based on Karpat",
+  "description": "Run any question or decision through a council of 5 AI advisors who analyze independently, peer-review each other anonymously, and synthesize a single verdict.",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Kunjan Patel",
+    "url": "https://github.com/kunjan-p"
+  },
+  "tags": [
+    "community",
+    "create",
+    "decision-support",
+    "multi-agent",
+    "peer-review",
+    "research"
+  ],
+  "compat": {
+    "agentSkills": [
+      {
+        "path": "./SKILL.md"
+      }
+    ]
+  },
   "od": {
     "kind": "skill",
     "taskKind": "new-generation",
+    "mode": "live-artifact",
     "context": {
       "skills": [
         {
           "path": "./SKILL.md"
         }
+      ],
+      "assets": [
+        "./references"
       ]
     },
     "capabilities": [
-      "prompt:inject"
+      "prompt:inject",
+      "fs:read",
+      "fs:write"
     ]
   }
 }
