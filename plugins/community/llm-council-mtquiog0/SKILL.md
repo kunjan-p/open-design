@@ -11,7 +11,7 @@ The council fixes this. It runs your question through 5 independent advisors, ea
 
 This is adapted from Andrej Karpathy's LLM Council. He dispatches queries to multiple models, has them peer-review each other anonymously, then a chairman produces the final answer. We do the same thing inside Claude using sub-agents with different thinking lenses instead of different models.
 
-The council methodology originates with Karpathy. This skill is one of several independent community adaptations of it for Claude and is not claimed as original work; it is packaged here so the workflow is installable from the OpenDesign catalog.
+This is not an original idea and is not claimed as one — see Credits at the end for the people it comes from.
 
 ---
 
@@ -314,6 +314,34 @@ The user sees the HTML report. The transcript is there if they want to dig deepe
 - **The chairman can disagree with the majority.** If 4 out of 5 advisors say "do it" but the reasoning of the 1 dissenter is strongest, the chairman should side with the dissenter and explain why.
 - **Don't council trivial questions.** If the user asks something with one right answer, just answer it. The council is for genuine uncertainty where multiple perspectives add value.
 - **The visual report matters.** Most users will scan the report, not read the full transcript. Make the HTML output clean and scannable.
+
+## Credits
+
+This skill is not an original idea. It is a Claude-native packaging of a
+methodology that other people invented and refined, and it is submitted here
+so the workflow is installable rather than copied by hand.
+
+- **[Andrej Karpathy](https://github.com/karpathy/llm-council)** — the LLM
+  Council itself: dispatch a question to several models, have them review
+  each other with identities anonymized, then let a chairman synthesize the
+  final answer. The three-stage structure used here is his.
+- **Ole Lehmann** — the adaptation that the Claude-skill versions of this
+  workflow are generally credited to.
+- **The community Claude-skill implementations** that established the shape
+  this file follows — five advisors with distinct reasoning lenses, a
+  workspace-context pass, and an HTML report plus Markdown transcript.
+  Independent versions include
+  [oliwoodman/llm-council-skill](https://github.com/oliwoodman/llm-council-skill),
+  [tenfoldmarc/llm-council-skill](https://github.com/tenfoldmarc/llm-council-skill),
+  and [aiwithremy/claude-skills-llm-council](https://github.com/aiwithremy/claude-skills-llm-council).
+
+The substantive change from Karpathy's original is that advisors are
+sub-agents given different thinking lenses inside one model, rather than
+different models. Everything else follows the prior art above.
+
+If you are one of the authors of the text this derives from and want the
+attribution corrected or the plugin withdrawn, say so on the PR and it will
+be handled.
 
 ## Provenance
 
