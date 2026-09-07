@@ -11,6 +11,8 @@ The council fixes this. It runs your question through 5 independent advisors, ea
 
 This is adapted from Andrej Karpathy's LLM Council. He dispatches queries to multiple models, has them peer-review each other anonymously, then a chairman produces the final answer. We do the same thing inside Claude using sub-agents with different thinking lenses instead of different models.
 
+The council methodology originates with Karpathy. This skill is one of several independent community adaptations of it for Claude and is not claimed as original work; it is packaged here so the workflow is installable from the OpenDesign catalog.
+
 ---
 
 ## when to run the council
